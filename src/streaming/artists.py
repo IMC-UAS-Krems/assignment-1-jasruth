@@ -7,6 +7,10 @@ Classes to implement:
   - Artist
 """
 
+
+
+# Artist class & it's methods
+#-------------------------------------------------------------------------------------------------------- 
 class Artist:
     def __init__(self, artist_id:str, name:str, genre:str, tracks = None):
         self.artist_id = artist_id

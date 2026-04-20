@@ -9,6 +9,9 @@ Classes to implement:
 from datetime import datetime
 
 
+
+# Main class & method
+#-------------------------------------------------------------------------------------------------------- 
 class ListeningSession:
     def __init__(self, session_id:str, user:"User", track:"Track", timestamp:datetime, duration_listened_seconds:int):
         self.session_id = session_id

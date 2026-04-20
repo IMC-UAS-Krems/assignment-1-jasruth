@@ -13,6 +13,9 @@ Classes to implement:
 from datetime import date
 
 
+
+# Main class & methods
+#-------------------------------------------------------------------------------------------------------- 
 class User:
     def __init__(self, user_id:str, name:str, age:int, sessions = None):
         self.user_id = user_id
@@ -25,15 +28,16 @@ class User:
 
     def total_listening_seconds(self) -> int:
         return sum(session.duration_listened_seconds for session in self.sessions)
-
+    
     def total_listening_minutes(self) -> float:
         return self.total_listening_seconds() / 60
-        
+    
     def unique_tracks_listened(self) -> set[str]:
         return {session.track.track_id for session in self.sessions}
 
 
-
+# Subclasses & methods
+#-------------------------------------------------------------------------------------------------------- 
 class FamilyAccountUser(User):
     def __init__(self, user_id:str, name:str, age:int, sessions = None, sub_users = None):
         super().__init__(user_id, name, age, sessions)
@@ -44,6 +48,8 @@ class FamilyAccountUser(User):
 
     def all_members(self):
         return [self] + self.sub_users
+
+
 
 class FamilyMember(User):
     def __init__(self, user_id:str, name:str, age:int, parent:FamilyAccountUser, sessions = None):

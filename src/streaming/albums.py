@@ -7,6 +7,10 @@ Classes to implement:
   - Album
 """
 
+
+
+# Album class & methods
+#-------------------------------------------------------------------------------------------------------- 
 class Album:
     def __init__(self, album_id:str, title:str, artist:"Artist", release_year:int, tracks = None):
         self.album_id = album_id
@@ -14,12 +18,12 @@ class Album:
         self.artist = artist
         self.release_year = release_year
         self.tracks = tracks if tracks is not None else []
-
+    
     def add_track(self, track) -> None:
         track.album = self
         self.tracks.append(track)
         self.tracks.sort(key=lambda t: t.track_number)
-    
+
     def track_ids(self) -> set[str]:
         return {track.track_id for track in self.tracks}
     

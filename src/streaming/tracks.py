@@ -28,12 +28,12 @@ class Track:
     self.genre = genre 
   
   def duration_minutes(self) -> float:
-        return self.duration_seconds / 60
-
+    return self.duration_seconds / 60
+  
   def __eq__(self, other) -> bool:
-      if not isinstance(other, Track):
-          return False
-      return self.track_id == other.track_id
+    if not isinstance(other, Track):
+      return False
+    return self.track_id == other.track_id
 
       
 
@@ -51,8 +51,8 @@ class AlbumTrack(Song):
     self.album = album
 
 class SingleRelease(Song):
-  def __init__(self, track_id:str, title:str, duration_seconds:int, genre:str, artist: Artist, release_date:datetime):
-    super().__init__(title, genre, duration_seconds, track_id, artist)
+  def __init__(self, track_id:str, title:str, duration_seconds:int, genre:str, artist: "Artist", release_date:datetime):
+    super().__init__(track_id, title, duration_seconds, genre, artist)
     self.release_date = release_date
     
   
