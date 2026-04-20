@@ -129,7 +129,7 @@ class StreamingPlatform:
 # Return None if no sessions exist.
 #----------------------------------------------------------------------------------------------
     def track_with_most_distinct_listeners(self) -> Track | None:
-        if len(self.sessions) == 0:
+        if len(self._sessions) == 0:
             return None
         
         best_track_id = None
