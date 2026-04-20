@@ -19,7 +19,9 @@ class Artist:
         self.tracks = tracks if tracks is not None else []
 
     def add_track(self, track) -> None:
+        """add a track to the artists collection"""
         self.tracks.append(track)
 
     def track_count(self) -> int:
+        """returns total number of tracks from an artist"""
         return len(self.tracks)

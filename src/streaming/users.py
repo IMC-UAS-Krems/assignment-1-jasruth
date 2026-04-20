@@ -24,15 +24,19 @@ class User:
         self.sessions = sessions if sessions is not None else []   
 
     def add_session(self, session) -> None:
+        """adds a listened to session to the user"""
         self.sessions.append(session)
 
     def total_listening_seconds(self) -> int:
+        """Calculates the total listening time in seconds"""
         return sum(session.duration_listened_seconds for session in self.sessions)
     
     def total_listening_minutes(self) -> float:
+        """Calcultes total listening time in minutes"""
         return self.total_listening_seconds() / 60
     
     def unique_tracks_listened(self) -> set[str]:
+        """gets a set of track ids the user has listened to"""
         return {session.track.track_id for session in self.sessions}
 
 
@@ -44,9 +48,11 @@ class FamilyAccountUser(User):
         self.sub_users = sub_users if sub_users is not None else []     
 
     def add_sub_user(self, sub_user) -> None:
+        """add member to the account"""
         self.sub_users.append(sub_user)
 
     def all_members(self):
+        """returns all users in the family account"""
         return [self] + self.sub_users
 
 

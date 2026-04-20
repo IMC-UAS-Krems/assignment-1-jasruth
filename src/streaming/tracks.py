@@ -28,9 +28,11 @@ class Track:
     self.genre = genre 
   
   def duration_minutes(self) -> float:
+    """converts seconds to minutes"""
     return self.duration_seconds / 60
   
   def __eq__(self, other) -> bool:
+    """equality between track objects (if they have the same id)"""
     if not isinstance(other, Track):
       return False
     return self.track_id == other.track_id

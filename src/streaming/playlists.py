@@ -20,13 +20,16 @@ class Playlist:
         self.tracks = tracks if tracks is not None else []
     
     def add_track(self, track) -> None:
+        """add a track to the playlist"""
         if track not in self.tracks:
             self.tracks.append(track)
         
     def remove_track(self, track_id) -> None:
+        """remove a track from a playlist by its id"""
         self.tracks = [track for track in self.tracks if track.track_id != track_id]
 
     def total_duration_seconds(self) -> int:
+        """Calcultes the total duration of seconds in a playlist"""
         return sum(track.duration_seconds for track in self.tracks)
 
 
@@ -39,9 +42,11 @@ class CollaborativePlaylist(Playlist):
         self.contributors = contributors if contributors is not None else [owner]
 
     def add_contributor(self, user) -> None:
+        """adds a user to contribute to a playlist"""
         if user not in self.contributors:
             self.contributors.append(user)
 
     def remove_contributor(self, user) -> None:
+        """remove a contributer from a playlist"""
         if user is not self.owner and user in self.contributors:
             self.contributors.remove(user)
